@@ -1,0 +1,45 @@
+
+
+div{
+    
+    text-align: center;
+    border: 1px solid black;
+   
+    
+    font-size: 2rem;
+    
+    
+}
+.div1{
+    position: absolute;
+    z-index: 1;
+    background-color: red;
+    margin: 100px 0 0 100px;
+    /* overflow: scroll; */
+}
+.div2{
+    position: absolute;
+    z-index: 2;
+    background-color: blue;
+    margin: 200px 0 0 200px;
+
+}
+.div3{
+    position: absolute;
+    z-index: 3;
+    background-color: green;
+    margin: 300px 0 0 300px;
+
+}
+
+.stick{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    
+}
+/* class super will make the text superscripted */
+/* .super{
+    position: relative;
+    top: -1ex;
+} */

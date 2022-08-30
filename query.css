@@ -1,0 +1,17 @@
+body{
+    background-color: green;
+}
+
+@media only screen and (max-width:600px){
+    body{
+        background-color: red;
+    }
+    h1{
+        font-size: 25px;
+    }
+}
+@media (min-width:600px) {
+    h1{
+        font-size: 50px ;
+    }
+}

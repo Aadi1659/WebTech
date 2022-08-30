@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>example for set interval and clear interval</p>
+    <button onclick="stop()">stop</button>
+    <div id="root"></div>
+    <script>
+        myinterval = setInterval(setc,500);
+        function setc(){
+            let x = document.body;
+            x.style.backgroundColor = (x.style.backgroundColor == "yellow") ? "pink" : "yellow";
+        }
+        function stop(){
+            clearInterval(myinterval);
+        }
+    </script>
+    <script src="objects.js"></script>
+</body>
+</html>

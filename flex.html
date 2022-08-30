@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="flex.css">
+    <title>Flex property</title>
+    <style>
+        #main div:nth-of-type(1){flex-grow: 1;}
+        #main div:nth-of-type(2){flex-shrink:3;}
+        #main div:nth-of-type(3){flex-grow: 1;}
+        #main div:nth-of-type(4){flex-grow: 1;}
+        /* means that div of id main, take the nth div element and apply the CSS for it */
+        /* grow and shrink are just relative, grow means by how much a div will be bigger than the other elements and vice versa for shrink */
+    </style>
+</head>
+<body>
+    <div id = "main">
+        <h1>FLEX property</h1>
+        <div class="div50">50px</div>
+        <div class="div100">100px</div>
+        <div class="div150">150px</div>
+        <div class="div200">200px</div>
+
+
+    </div>
+</body>
+</html>

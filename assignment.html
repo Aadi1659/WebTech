@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+</head>
+<style>
+    body {
+        font-family: sans-serif;
+
+        background-color: #AEDBCE;
+    }
+
+    table {
+
+
+        width: 50%;
+    }
+
+    .srnTable {
+
+        background-color: #FFF8BC;
+    }
+
+    .reForm {
+
+
+        background-color: lavender;
+    }
+
+    img {
+        width: 10%;
+        height: 50px;
+        position: absolute;
+        right: auto;
+        top: auto;
+        left: 88%;
+        bottom: 90%;
+
+    }
+
+    h1 {
+        width: 50%;
+    }
+</style>
+
+<body>
+
+    <h1>Student Information</h1>
+    <img src="PESU.jpg" alt="pesu logo">
+
+    <table class="srnTable" border="1">
+        <tr>
+            <th>SRN</td>
+            <th>Subject</th>
+            <th>Marks</th>
+        </tr>
+        <tr>
+            <td rowspan="4">PES2UG21CS003</td>
+            <td>Web</td>
+            <td>75</td>
+        </tr>
+        <tr>
+            <td>DAA</td>
+            <td>70</td>
+        </tr>
+        <tr>
+            <td>C++</td>
+            <td>70</td>
+        </tr>
+        <tr>
+            <td>DMS</td>
+            <td>80</td>
+        </tr>
+        <tr>
+            <td colspan="4">Result Pass Fail</td>
+        </tr>
+    </table>
+
+    <h1>ReEvaluation Subject Form</h1>
+    <table class="reForm" border="1">
+        <form action="#" id="final">
+            <tr>
+                <td>First Name:</td>
+                <td>
+                    <input type="text" name="First Name" required placeholder="First name">
+                </td>
+            </tr>
+            <tr>
+                <td>SRN</td>
+                <td>
+                    <input type="text" name="SRN" placeholder="SRN">
+                </td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <input type="checkbox" name="Male">Male
+                    <input type="checkbox" name="Female">Female
+                </td>
+            </tr>
+            <tr>
+                <td>Email ID</td>
+                <td>
+                    <input type="email" name="email" placeholder="example@pes.edu">
+                </td>
+            </tr>
+            <tr>
+                <td>Mobile Number</td>
+                <td>
+                    <input type="text" placeholder="Mobile number" pattern="[1-9]{1}[0-9]{9}"
+                        title="Please enter 10 digits">
+
+                </td>
+            </tr>
+            <tr>
+
+                <td>Subject</td>
+                <td>
+                    <select>
+                        <option value="Select subject">Select subject</option>
+                        <option value="WEB">web</option>
+                        <option value="C++">C++</option>
+
+
+                    </select>
+
+                </td>
+            </tr>
+            <tr>
+                <td>Date of request</td>
+                <td>
+
+                    <input type="date" name="" id="">
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="checkbox" required>
+
+                    I have verified above info are correct
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button onclick="alertMe()">Submit</button>
+                    <button onclick="document.getElementById('final').reset()">Reset</button>
+                </td>
+            </tr>
+
+        </form>
+
+
+    </table>
+
+
+
+    <script>
+        function alertMe() {
+            const answer = document.getElementById("final");
+            if (answer.checkValidity()) {
+                alert("Successfully submitted the form");
+            }
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+
+div{
+    
+    border: 1px solid black;
+    
+}
+#main{
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 100px;
+    
+}
+.div50{
+    height: 100px;
+    width: 50px;
+    background-color: red;
+}
+.div100{
+    height: 100px;
+    width: 100px;
+    background-color: blue;
+}
+.div150{
+    height: 100px;
+    width: 150px;
+    background-color: green;
+}
+.div200{
+    height: 100px;
+    width: 200px;
+    background-color: yellow;
+}
