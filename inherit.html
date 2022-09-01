@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inherit</title>
+</head>
+<body>
+    <script>
+        let Person = function(name,job,yob){
+            this.name = name;
+            this.job = job;
+            this.yob = yob;
+        }
+        //comes under prototype...
+        Person.prototype.calculateAge = function(){
+            console.log("The age of the person is "+(2022-this.yob));
+        }
+        console.log(Person.prototype);
+        let p1 = new Person("john","Professor",1975);
+        
+        console.log(p1);
+        p1.calculateAge();
+        
+
+    </script>
+</body>
+</html>

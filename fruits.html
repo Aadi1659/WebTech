@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fruits(){
+            this.name = 'fruit 1';
+            this.season = 'summer';
+        }
+        //all attricbutes added to apple also
+        function apple(){
+            fruits.call(this)
+        }
+        apple.prototype = Object.create(fruits.prototype);
+        const app = new apple();
+    
+        console.log(app.name);
+        console.log(app.season);
+    </script>
+</body>
+</html>
