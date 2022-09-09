@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            padding: 50px;
+            background-color: rgba(255,0,0,0.2);
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>The stopPropagation() Method</h1>
+    <p>Click DIV1:</p>
+    <div onclick="func2()">DIV2
+        <div onclick="func1(event)">DIV1</div>
+    </div>
+    <input type="checkbox" id="check">
+    
+    <p>Because div1 is inside div2, both divs get clicked and 2 alert come</p>
+    <p>Check the stopPropagation checkbox and try again</p>
+    <p>it allows to prevent propagation</p>
+    <script>
+        function func1(event){
+            alert("DIV 1");
+            if(document.getElementById("check").checked){
+                event.stopPropagation();
+            }
+        }
+        function func2(){
+            alert("DIV 2");
+        }
+    </script>
+</body>
+</html>
