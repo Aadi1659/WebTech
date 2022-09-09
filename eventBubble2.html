@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #parent{
+            background-color: red;
+            
+        }
+        #child{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h2>Div with Div Bubble event</h2>
+    <div id="parent">
+        
+            <h2>Parent</h2>
+        
+        <div id="child">
+            
+                <h2>Child</h2>
+            
+        </div>
+    </div>
+    <script>
+        //false means bubbling effect 
+        //true means event capture
+        document.getElementById("child").addEventListener("click",function(){
+            alert("You clicked the child element!");
+        },false);
+        document.getElementById("parent").addEventListener("click",function(){
+            alert("You clicked the parent element!");
+        },false);
+        
+    </script>
+</body>
+</html>
