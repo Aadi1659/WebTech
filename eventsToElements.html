@@ -20,10 +20,18 @@
     <!-- another way -->
     <script>
         const btn = document.querySelector("button");
-        btn.onclick = function(){
+        // btn.onclick = function(){
+        //     const rndCol = 'rgb(' + Math.random()*255 + ',' + Math.random()*255 + ',' + Math.random()*255 + ')';
+        //     document.body.style.backgroundColor = rndCol;
+        // }
+        
+    //event listners
+        btn.addEventListener('click',function(){
             const rndCol = 'rgb(' + Math.random()*255 + ',' + Math.random()*255 + ',' + Math.random()*255 + ')';
             document.body.style.backgroundColor = rndCol;
-        }
+        })
+
+
     </script>
 </body>
 </html>
