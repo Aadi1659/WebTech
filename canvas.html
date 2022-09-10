@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Canvas HTML</title>
+    <style>
+        #mycanvas{
+            border: 2px solid black;
+        }
+    </style>
 </head>
 <body>
     <canvas id="mycanvas" width="200" height="100"></canvas>
@@ -12,8 +17,31 @@
     <script>
         var c = document.getElementById("mycanvas");
         var ctx = c.getContext("2d");
+        ctx.moveTo(0,0);//from here
+        ctx.lineTo(200,100);//move line to here
+        ctx.stroke(); //giving line
+
         ctx.fillStyle = "#FF0000";
         ctx.fillRect(50,50,150,75);
+
+        //drawing a circle
+        ctx.beginPath();
+        //arc(x,y,radius,startAngle,endAngle,counterclockwise)
+        ctx.arc(95,50,40,0,2*Math.PI,true);
+        ctx.stroke();
+
+
+        // createLinearGradient(x0, y0, x1, y1)
+        var grd = ctx.createLinearGradient(0,0,200,0);
+        grd.addColorStop(0,"red");
+        grd.addColorStop(0.25,"blue")
+        grd.addColorStop(0.50,"green");
+        grd.addColorStop(0.75,"yellow");
+        grd.addColorStop(1,"white");
+        ctx.fillStyle = grd;
+        ctx.fillRect(10, 10, 150, 80);
+
+
     </script>
 </body>
 </html>
