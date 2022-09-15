@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("#div1").fadeToggle();
+                $("#div2").fadeToggle("slow");
+                $("#div3").fadeToggle(3000);
+
+            });
+        });
+        $(document).ready(function(){
+            $("#change").click(function(){
+
+                
+                $("#change").html("I am vengeance!");
+                
+                
+                
+                
+            })
+        })
+    </script>
+    <style>
+        div{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            display: none;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <p>Demonstate fadeIn() with different parameters</p>
+    <button>Click to fade the boxes!</button>
+
+    <div id="div1" style="background-color: red; top:100px">
+        <h3>Hi i am div 1!</h3>
+    </div>
+    <div id="div2" style="background-color: blue;top:200px">
+        <h3>Hi i am div 2!</h3>
+    </div>
+    <div id="div3" style="background-color: green; top:300px">
+        <h3>Hi i am div 3!</h3>
+    </div>
+    <p id="change">Click me! And watch me change!</p>
+
+    
+</body>
+</html>
