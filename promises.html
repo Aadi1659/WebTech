@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Promises</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+</head>
+<script>
+    var weather;
+    const date = new Promise(function(resolve,reject){
+        weather = true;
+        if(weather){
+            const dateDetails = {
+                name:"abc",
+                location:"5th Cross Street",
+                table:5
+            };
+            resolve(dateDetails)
+        }
+        else{
+            reject(new Error("Bad weather!"));
+        }
+    })
+    
+    date.then(function(done){
+        console.log("We are going on a date!");
+        console.log(done);
+    })
+
+    .catch(function(error){
+        console.log(error.message);
+    })
+
+</script>
+<body>
+    
+</body>
+</html>
