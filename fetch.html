@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fetchdata(){
+            mydiv = document.querySelector("#container");
+            fetch('text.txt').then(function(response){
+                return response.text();
+            })
+            .then(function(text){
+                mydiv.innerHTML = text;
+            })
+            .catch(function(error){
+                console.log(error.message);
+            })
+        }
+    </script>
+</head>
+<body>
+    <button onclick="fetchdata()">Fetch data</button>
+    <div id="container"></div>
+</body>
+</html>
