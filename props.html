@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        var destination = document.querySelector("#container");
+        class Helloworld extends React.Component {
+            render(){
+                return <div>
+                    <h1>Hello, {this.props.name}! SRN is {this.props.srn}</h1>
+                    
+                    {this.props.children} 
+                </div>;
+            }
+        }
+        ReactDOM.render(
+            <div>
+                <Helloworld name="Batman" srn="PES2UG21CS003">
+                    <p>Next line</p>
+                </Helloworld>
+
+
+            </div>,destination);
+            
+        
+            
+    </script>
+</body>
+</html>
+<!-- if we remove the this.props.children, the children elements ie the para element in this case will not be printed -->
