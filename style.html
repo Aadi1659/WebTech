@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        var dest =document.querySelector("#container");
+        class Letter extends React.Component{
+            render(){
+                var letterstyle = {
+                    padding:"20px",
+                    margin: "10px",
+                    backgroundColor:this.props.bgcolor,
+                    color:"#333",
+                    display:"inline-block",
+
+                };
+                return (
+                <div style={letterstyle}>
+                    {this.props.children}
+                </div>
+                );
+            }
+        }
+        ReactDOM.render(
+            <div>
+                <Letter bgcolor="#58B3FF">D</Letter>
+                <Letter bgcolor="#FF605F">E</Letter>
+                <Letter bgcolor="#FFD52E">V</Letter>
+                <Letter bgcolor="#49DD8E">S</Letter>
+                <Letter bgcolor="#AE99FF">H</Letter>
+                <Letter bgcolor="#58B3FF">A</Letter>
+                <Letter bgcolor="#FF605F">R</Letter>
+                <Letter bgcolor="#FFD52E">M</Letter>
+                <Letter bgcolor="#49DD8E">A</Letter>
+
+            </div>,dest
+        );
+            
+            
+        
+    </script>
+    
+</body>
+</html>
