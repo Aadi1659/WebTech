@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script type="text/babel">
+        class ResImage extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <img src={this.props.src}/>
+                    </div>
+                );
+            }
+        }
+        class ResLink extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <a href={this.props.link}>{this.props.linktext}</a>
+                        
+                    </div>
+                );
+            }
+        }
+        class Rescaption extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <p>{this.props.caption}</p>
+                        
+                    </div>
+                );
+            }
+        }
+        class SrchResult extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <ResImage {...this.props}/>
+                        <Rescaption {...this.props}/>
+                        <ResLink {...this.props}/>
+                        
+                    </div>
+                );
+            }
+        }
+
+
+
+
+        ReactDOM.render(
+            <div>
+                <SrchResult src="1.jpg" link="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.worldwildlife.org%2Fspecies%2Ftiger&psig=AOvVaw0xYG0SihAgAVX8I4IsAGNl&ust=1664357208542000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCNji15qKtPoCFQAAAAAdAAAAABAD" linktext="Open Image Link" caption="Tiger Wildlife"></SrchResult>
+                <SrchResult src="2.jpg" link="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dreamstime.com%2Fphotos-images%2Fpeacock.html&psig=AOvVaw0oAGqa04MVrcY33ktvHBnm&ust=1664357655349000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCKC5zPCLtPoCFQAAAAAdAAAAABAD" linktext="Open Image Link" caption="Peacock Wildlife"></SrchResult>
+                
+            </div>,document.querySelector("#container")
+        );
+
+        
+    </script>
+
+
+</body>

@@ -1,0 +1,75 @@
+<!-- STATEFUL COMPONENTS do undergo changes unlike the stateless widgets -->
+<!-- Unmounting means the component is no longer the part of the dom structure -->
+
+<!-- make a counter that will count the number of seconds You have been on the webpage -->
+
+<!-- setState() to change the state of a component -->
+
+<!-- construtor sets the initial set and for any changes it is used for binding. -->
+
+<!-- add this code to mini project as an additional feature -->
+<!-- 1st step is define the constructor, inside it set the intial condition/state -->
+<!-- 2nd step any changes inside the constructor like creating any function and all -->
+<!-- 3rd step bind it inside the constructor -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        h1,h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script type="text/babel">
+        class Counter extends React.Component{
+            constructor(props,context){ //need instance
+                super(props,context); //gives instance
+                this.state = {
+                    seconds: 0,
+                };
+                this.timerTick = this.timerTick.bind(this); //binds the fxn to the component
+            }
+
+            componentDidMount(){
+                setInterval(this.timerTick,1000);
+            }
+            //inorder to be extra careful we can note down the time of the previous state and increment it by one seconds.
+            timerTick(){
+                this.setState((prevState)=>{return {seconds:prevState.seconds + 1}});
+            }
+                    
+            render(){
+                return(
+                    <h1>{this.state.seconds}</h1>
+                );
+            }
+                
+        }
+
+        class CounterDisplay extends React.Component{
+            render(){
+                return(<div>
+                    <Counter/>
+                    <h2>Seconds</h2>
+                    <h2>Since you loaded the website</h2>
+                </div>
+            )};
+        }
+
+
+        ReactDOM.render(
+            <CounterDisplay/>,document.querySelector("#container"),
+        );
+    </script>
+
+</body>
