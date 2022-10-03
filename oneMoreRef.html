@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+    crossorigin
+    src="https://unpkg.com/react@18/umd/react.development.js"
+  ></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+  ></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        var destination = document.querySelector("#container");
+        var ev;
+        var colors = ['red','purple','green','blue','yellow']
+        class CustomText extends React.Component{
+            constructor(props){
+                super(props);
+                this.textPara = null;
+                this.setTextRef = (element)=>{
+                    this.textPara = element;
+                };
+                this.changeText = (e)=>{
+                    if(this.textPara){
+                        ev = e;
+                        console.log(typeof e);
+                        console.log(e.target.value + " clicked");
+                        let i = Math.floor(Math.random()*100)%5;
+                        this.textPara.innerHTML = colors[i];
+                        this.textPara.style.color = colors[i];
+                        //e.preventDefault();
+                        return false;
+                    }
+                }
+            }
+        render(){
+            return (
+                <div>
+                    <h1 ref={this.setTextRef}>This is a test</h1>
+                    <input type="button" value="change the text" onClick={this.changeText}/>
+                </div>
+            )
+        }    
+            
+        }
+        ReactDOM.render(
+            <CustomText/>,destination
+        )
+        
+        
+    </script>
+</body>
+</html>
