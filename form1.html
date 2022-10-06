@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- Form has uncontrolled and controlled components -->
+    <!-- this is form using controlled components -->
+    <div id="container">
+    <br>
+    <div id="container2">
+    
+
+    </div>
+    <script type="text/babel">
+        class ReadName extends React.Component{
+            constructor(props){
+                super(props); //instance variable
+                this.state = {value:'bob'};
+                this.handleChange = this.handleChange.bind(this);
+                this.handleSubmit = this.handleSubmit.bind(this);
+            }
+            handleChange = function(event){
+                this.setState({value:event.target.value});
+            }
+            handleSubmit = function(event){
+                console.log("Name entered "+this.state.value);
+                event.preventDefault(); //without this its getting reloaded
+            }
+            render(){
+                //try using <textarea> also
+                //try using dropdown menu also
+                return (<form onSubmit={this.handleSubmit}>
+                    <input value={this.state.value} onChange={this.handleChange} type="text"/>
+                    <input type="submit" value="Submit"/>
+                </form>)
+            }
+        }
+        //dropdown
+        class ReadDropdown extends React.Component{
+            constructor(props){
+                super(props); //instance variable
+                this.state = {value:"Mango"};
+                this.handleChange = this.handleChange.bind(this);
+                this.handleSubmit = this.handleSubmit.bind(this);
+            }
+            handleChange = function(event){
+                this.setState({value:event.target.value});
+            }
+            handleSubmit = function(event){
+                console.log("Name entered "+this.state.value);
+                event.preventDefault(); //without this its getting reloaded
+            }
+            render(){
+                //try using <textarea> also
+                //try using dropdown menu also
+                return (<form onSubmit={this.handleSubmit}>
+                    <label >Your favorite fruit?</label>
+                    <select value={this.state.value} onChange={this.handleChange}>
+                        <option value="Mango">Mango</option>
+                        <option value="Orange">Orange</option>
+                    </select>
+                    <input type="submit" value="Submit"/>
+                </form>)
+            }
+        }
+        
+    ReactDOM.render(
+    <ReadDropdown/>,document.querySelector("#container2"));
+    </script>
+    
+</body>
+</html>
