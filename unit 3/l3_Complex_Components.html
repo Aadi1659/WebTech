@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossdomain src="https://unpkg.com/react@16/umd/react.development.js"> </script> 
+    <script crossdomain src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"> </script> 
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"> </script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>    
+    <script type="text/babel">
+        var destination = document.querySelector("#root");
+        class ResImage extends React.Component{
+            render(){
+                return (
+                    <div>
+                        <img src={this.props.source} alt="Image" />    
+                    </div>
+                )
+            }
+        }
+        class ResLink extends React.Component{
+            render(){
+                return (
+                    <div>
+                        <a href={this.props.link}>{this.props.linkText}</a>
+                    </div>
+
+                )
+            }
+        }
+
+        class ResCaption extends React.Component {
+            render(){
+                return (
+                    <div>
+                        <p>{this.props.caption}</p>    
+                    </div>
+
+                )
+            }
+        }
+
+        class Final_Search_Result extends React.Component{
+            render(){
+                return (
+                    <div>
+                        <ResImage {...this.props} />
+                        <ResCaption {...this.props} />
+                        <ResLink {...this.props} />
+                     
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <div>
+                <Final_Search_Result source="images/tiger.jpg" link="https://www.britannica.com/animal/tiger" linkText="britannica.com" caption="Tiger | Facts, Information and Habitat…" />    
+                <Final_Search_Result source="images/peacock.jpg" link="https://www.britannica.com/animal/peacock" linkText="britannica.com" caption="Peacock | Facts, Information and Habitat…" />  
+
+            </div>,destination
+        )
+
+    </script>
+
+</body>
+</html>

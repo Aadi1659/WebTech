@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossdomain src="https://unpkg.com/react@16/umd/react.development.js"> </script>
+    <script crossdomain src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"> </script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"> </script>
+    <title>Lecture 5</title>
+</head>
+<body>
+    <div id="root"></div>    
+    <script type="text/babel">
+        var ev;
+        var colors = ['red','purple','green','blue','yellow']
+        var destination = document.querySelector("#root");
+        class CustomText extends React.Component{
+            constructor(props){
+                super(props);
+                this.textpara = null
+                this.setTextRef = (element)=> {
+                    this.textpara = element;
+                }
+                this.changetext = (e)=>
+                    {
+                        if(this.textpara){
+                            ev = e;
+                            console.log(typeof e)
+                            console.log(e.target.value+" clicked");
+			                let i = Math.floor(Math.random()*100)%5;
+                            this.textpara.innerHTML=colors[i];
+			                this.textpara.style.color=colors[i]; 
+			                //e.preventDefault();
+			                return false;
+                        }
+                    }
+            }
+            render (){
+            return(
+                <div>
+			        <h1 ref={this.setTextRef}>This is test</h1>	
+			        <input
+				        type="button"
+				        value="Change the text"
+				        onClick={this.changetext} />
+		        </div>
+            )
+        }
+        }
+        ReactDOM.render(
+            <CustomText />
+            ,destination
+        )
+        
+            
+
+    </script>
+</body>
+</html>
