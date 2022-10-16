@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      
+      #heading{
+        text-align: center;
+      }
+      h1,h2,h3,p{
+        color: #06283D;
+        font-family: 'Open Sans', sans-serif;
+      }
+      h1,h2{
+        text-align: center;
+      }
+      
+      img {
+        height: 200px;
+        width: 200px;
+        padding: 10px;
+      }
+
+      .animate-character
+        {
+        text-transform: uppercase;
+        background-image: linear-gradient(
+            -225deg,
+            #231557 0%,
+            #44107a 29%,
+            #ff1361 67%,
+            #fff800 100%
+        );
+        background-size: auto auto;
+        background-clip: border-box;
+        background-size: 200% auto;
+        color: #fff;
+        background-clip: text;
+        text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textclip 2s linear infinite;
+            font-size: 5rem;
+        padding-top: 30px;
+        margin: auto;
+        }
+
+        @keyframes textclip {
+        to {
+            background-position: 200% center;
+        }
+        }
+
+button {
+  background-color: #47B5FF;
+  border-radius: 100%;
+  border: 0;
+  box-shadow: rgba(1,60,136,.5) 0 -1px 3px 0 inset,rgba(0,44,97,.1) 0 3px 6px 0;
+  
+  color: #fff;
+  font-size: 1.25rem;
+  
+  margin: 10px;
+  
+  padding: 16px 20px;
+ 
+}
+button:hover {
+    background-color: #065dd8;
+    transform: translateY(-2px);
+  }
+  
+
+
+
+
+
+    </style>
+    <title>React Assignment</title>
+  </head>
+  <body>
+    <h1 id="heading" class="animate-character">Your Order Summary</h1>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+      var item1 = {
+        title: "ASUS TUF A15",
+        price: 120000,
+        description:
+          "ASUS TUF A15 2022 with AMD Ryzen 7 5800H 8GB RAM and RTX 3070",
+        location: "./tuf.png",
+      };
+
+      var item2 = {
+        title: "Air Case protective Cover for 15'' laptops",
+        price: 350,
+        description:
+          "This Laptop Case is made of soft puffy fabric inside which protect your device from scratches and also has 3D foam cushion around which insure 360 ̊ protection to your laptop.",
+        location: "./aricase.jpg",
+      };
+
+      var item3 = {
+        title: "A-DATA 8GB DDR4 RAM",
+        price: 3000,
+        description:
+          "RAM stands for random access memory, and it's one of the most fundamental elements of computing. RAM is a temporary memory bank where your computer stores data it needs to retrieve quickly.",
+        location: "./ram.jpg",
+      };
+      var destination = document.querySelector("#root");
+      var totalCost = 0;
+      var items = [item1, item2, item3];
+
+      function totalCost_Incrementer(how_much) {
+        totalCost += how_much;
+        document.querySelector("#total").innerHTML =
+          "The Total Cost is " + totalCost;
+      }
+      function totalCost_Decrementer(how_much) {
+        totalCost -= how_much;
+        document.querySelector("#total").innerHTML =
+          "The Total Cost is " + totalCost;
+      }
+      function expected_Date() {
+        var date = new Date();
+        document.querySelector("#expected").innerHTML =
+          "The date of Order is " +
+          date.getDate() +
+          "/" +
+          date.getMonth() +
+          "/" +
+          date.getFullYear() +
+          " and the expected Delivery Date is " +
+          Number(date.getDate() + 3) +
+          "/" +
+          date.getMonth() +
+          "/" +
+          date.getFullYear();
+      }
+
+      class Item extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            quantity: 0,
+            price: props.price,
+            title: props.title,
+            description: props.description,
+            location: props.location,
+          };
+          this.increment = this.increment.bind(this);
+          this.decrement = this.decrement.bind(this);
+        }
+
+        increment() {
+          if (this.state.quantity >= 0 && this.state.quantity < 5) {
+            this.setState({
+              quantity: this.state.quantity + 1,
+            });
+            totalCost_Incrementer(this.state.price);
+            expected_Date();
+          } else {
+            alert("You cannot add more than 5 items!");
+          }
+        }
+        decrement() {
+          if (this.state.quantity > 0) {
+            this.setState({
+              quantity: this.state.quantity - 1,
+            });
+            totalCost_Decrementer(this.state.price);
+          }
+        }
+
+        render() {
+          var styleMe = {
+            textAlign: "center",
+            border: "3px solid #256D85",
+            borderRadius: "5%",
+            float: "left",
+            margin: "20px",
+            width: "30%",
+            boxSizing: "border-box",
+            padding: "20px",
+            };  
+            
+            var round = {
+                borderRadius: "100%",
+                border: "7px solid #256D85",
+            }
+            
+
+         return (
+            <div style={styleMe}>
+              <h3>{this.state.title}</h3>
+              <p>
+                <strong>Description</strong>
+              </p>
+              <p>{this.state.description}</p>
+              <p>Price : {this.state.price}</p>
+              <p>Quantity = {this.state.quantity}</p>
+              <img src={this.state.location} alt="" style={round}/>
+              <br />
+              <button onClick={this.increment}>+</button>
+              <button onClick={this.decrement}>-</button>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(
+        <div>
+          <Item
+            price={items[0].price}
+            title={items[0].title}
+            description={items[0].description}
+            location={items[0].location}
+          />
+          <Item
+            price={items[1].price}
+            title={items[1].title}
+            description={items[1].description}
+            location={items[1].location}
+          />
+          <Item
+            price={items[2].price}
+            title={items[2].title}
+            description={items[2].description}
+            location={items[2].location}
+          />
+        </div>,
+
+        destination
+      );
+    </script>
+    
+    <h1 id="total"></h1>
+    <h1 id="expected"></h1>
+
+    <h2>Made by Aaditya Dev Sharma PES2UG21CS003</h2>
+
+
+  </body>
+</html>
